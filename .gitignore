@@ -1,7 +1,6 @@
 .DS_store
 .firebase/
-web/.DS_store
+*/.DS_store
 web/bower_components/
 web/build/
 web/node_modules/
-web/src/.DS_store
