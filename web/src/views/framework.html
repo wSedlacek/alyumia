@@ -124,11 +124,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             reflectToAttribute: true,
             observer: '_pageChanged',
           },
+          capitalPage: String,
           routeData: Object,
           subroute: Object,
           // This shouldn't be neccessary, but the Analyzer isn't picking up
           // Polymer.Element#rootPath
           rootPath: String,
+          title: String,
         };
       }
 
@@ -157,6 +159,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           null,
           this._showPage404.bind(this),
           true);
+
+        this._capitalizePage(page);
+        this._updateTitle(this.capitalPage, this.title);
+      }
+
+      _capitalizePage(page) {
+        this.capitalPage = page.charAt(0).toUpperCase() + page.slice(1);
+      }
+
+      _updateTitle(page, title) {
+        document.title = page + " | " + title;
       }
 
       _showPage404() {
